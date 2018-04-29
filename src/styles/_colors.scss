@@ -1,0 +1,23 @@
+/*
+ * COLOR PALLETTE
+ */
+
+ // Greyscale
+ $c-black : #1c1b1e;
+ $c-black-alt : #212121;
+ $c-g10 : lighten($c-black, 10);
+ $c-g20 : lighten($c-black, 20);
+ $c-g30 : lighten($c-black, 30);
+ $c-g40 : lighten($c-black, 40);
+ $c-g50 : lighten($c-black, 50);
+ $c-g60 : lighten($c-black, 60);
+ $c-g70 : lighten($c-black, 70);
+ $c-g80 : lighten($c-black, 80);
+ $c-g85 : lighten($c-black, 85);
+
+ // Color pallette base
+ $c-blue : #32385a;
+ $c-red : #E53935;
+ $c-pink : #E91E63;
+ $c-green : #4CAF50;
+ $c-orange : #FF9800;

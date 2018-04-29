@@ -1,0 +1,33 @@
+<div class="login-wrapper">
+  <img src="../../../../../assets/logo-type-pink.png" alt="Super Basket Logo">
+
+  <div class="form-wrapper">
+    <mat-tab-group class="demo-tab-group">
+
+      <mat-tab label="Login">
+        <form class="login-form" [formGroup]="_loginForm" (submit)="_onSignin()">   
+
+          <mat-form-field class="input-container">
+            <input matInput placeholder="Email" [errorStateMatcher]="errorMatcher" formControlName="email">
+            <mat-error *ngIf="_loginForm.get('email').hasError('email') && _loginForm.get('email').hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+      
+          <mat-form-field class="input-container">
+            <input matInput placeholder="Password" formControlName="password" type="password">
+          </mat-form-field>
+      
+          <div class="login-buttons">
+            <button mat-raised-button color="primary" type="submit">Log In</button>
+          </div>
+        </form>
+      </mat-tab>
+
+      <mat-tab label="Register">
+        <app-register></app-register>
+      </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>

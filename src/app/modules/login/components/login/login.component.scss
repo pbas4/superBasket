@@ -1,0 +1,51 @@
+@import '../../../../../styles/_colors';
+
+.login-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color: $c-black;
+
+    img {
+        width: 350px;
+    }
+}
+
+.form-wrapper {
+    margin-top: 2em;
+}
+
+.login-form {
+    width: 400px;
+    height: 350px;
+    margin-top: 1em;
+
+    h2 {
+        text-align: center;
+        color: $c-pink;
+        font-size: 2.5em;
+        font-weight: 200;
+    }
+    
+    .input-container {
+        display: block;
+        margin-top: 1em;
+    }
+}
+
+.login-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    
+    button {
+        margin-right: 1em;
+    }
+}
+
+::ng-deep .mat-tab-labels {
+    justify-content: center;
+}
