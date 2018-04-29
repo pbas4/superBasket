@@ -1,0 +1,34 @@
+@import '../../../../../styles/_colors';
+@import '../../../../../styles/_mediaqueries';
+
+.nav-menu {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	height: 60px;
+	padding: 1em;
+	border-bottom: 2px solid $c-pink;
+
+	img {
+		width: 150px;
+	}
+
+	ul li {
+		display: inline-block;
+		color: $c-black;
+		margin-right: 8px;
+
+		&:hover {
+			color: $c-pink;
+		}
+	}
+
+	.link-selected {
+		color: $c-pink;
+	}
+}

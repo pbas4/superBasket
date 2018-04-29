@@ -29,6 +29,19 @@ export class UserService {
     });
   }
 
+  public test(): any {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log('user', user)
+        console.log('email', user.email, 'emailVerified', user.emailVerified);
+        return user
+      } else {
+        console.log('Ningun usuario activo');        
+        return user
+      }
+    });
+  }
+
   /**
    * Send connected user
    */
@@ -52,4 +65,5 @@ export class UserService {
     .then(res => console.log(res))
     .catch(err => console.error(err))
   }
+  
 }

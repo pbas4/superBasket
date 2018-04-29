@@ -8,6 +8,7 @@ import { UserService } from './../../../shared/services';
 import { AuthService } from '../../services';
 
 import * as firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private _authService: AuthService,
     private _userService: UserService,
     private _fb: FormBuilder,
-    private _router: Router
+    private _router: Router,
+    private _authFire: AngularFireAuth
   ) { 
     this._loginForm = this._fb.group({
       'email': ['', [Validators.required, Validators.email] ],
@@ -33,16 +35,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { 
     console.log('init login')
-    this._userService.getLoggedUser();
-
-    this._userService.loggedUser$.subscribe(
-      user => { 
+    this._authFire.authState.subscribe(
+      user => {
         if (user && user.emailVerified) {
           this._router.navigateByUrl('app');
         }
+        console.log('authState', user);
       }
-    );
-
+    )
   }
 
   private _onSignin() {

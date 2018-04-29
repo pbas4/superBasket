@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuardChildren implements CanActivateChild {
 
   constructor(
     private _router: Router, 
     private _authFire: AngularFireAuth
   ) {}
-
-  canActivate(
+  
+  canActivateChild(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
@@ -28,4 +28,5 @@ export class AuthGuard implements CanActivate {
       return true;
     });
   }
+
 }

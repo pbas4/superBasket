@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UserService } from './services';
-import { AuthGuardService } from './services/auth-guard/auth-guard';
+import { AuthGuard, AuthGuardChildren } from './services';
 
 // Material components
 import { 
@@ -24,7 +24,7 @@ import {
 import { TopbarComponent } from './components/topbar/topbar.component';
 
 @NgModule({
-  declarations: [ TopbarComponent],
+  declarations: [ TopbarComponent ],
   imports: [
     CommonModule,
     FormsModule,
@@ -57,7 +57,8 @@ import { TopbarComponent } from './components/topbar/topbar.component';
     MatSelectModule,
     MatSortModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    TopbarComponent
   ]
 })
 
@@ -65,7 +66,7 @@ export class SharedModule {
 	static forRoot(): ModuleWithProviders {
 		return {
 			ngModule: SharedModule,
-			providers: [ UserService, AuthGuardService ]
+			providers: [ UserService, AuthGuard, AuthGuardChildren ]
 		}
 	}
 }

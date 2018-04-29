@@ -15,13 +15,11 @@ export class AuthService {
    */
   public register(email: string, password: string) {
     this._authFire.auth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
+      .then((authState) => {
+        console.log('authState', authState);
         this.sendEmailVerification();
       })
-      .catch(err => {
-        console.error(err);
-        return false
-      })
+      .catch(err => console.error('register error', err))
   }
 
   /**
@@ -31,9 +29,12 @@ export class AuthService {
    */
   public login(email: string, password: string) {
     this._authFire.auth.signInWithEmailAndPassword(email, password)
-      .catch(err => {
-        console.error(err);
-      })
+      .then(authState => console.log('authState login', authState))
+      .catch(err => console.error('Login error', err))
+  }
+
+  public logout() {
+    this._authFire.auth.signOut();
   }
 
   /**

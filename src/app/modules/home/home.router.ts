@@ -1,12 +1,12 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { AuthGuardService as AuthGuard } from './../shared/services';
+import { AuthGuard, AuthGuardChildren } from './../shared/services';
 
 import { HomeComponent } from './components';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'sb', pathMatch: 'full' },
+    { path: '', redirectTo: 'sb', pathMatch: 'full', canActivate: [AuthGuard] },
     { path: 'sb', component: HomeComponent, canActivate: [AuthGuard], children: [
 
     ]}
